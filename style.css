@@ -1,0 +1,186 @@
+/* Reset some default styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f4c4f3, #fcafde); /* Soft gradient background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    animation: backgroundAnimation 10s infinite alternate;
+}
+
+/* Game container styling */
+.game-container {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 380px;
+    box-sizing: border-box;
+    border: 5px solid #ff69b4;
+    animation: containerAnimation 1s ease-out;
+}
+
+/* Heading styling */
+h1 {
+    font-size: 2.6em;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15);
+    animation: titleAnimation 1s ease-in-out;
+}
+
+/* Board grid */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: repeat(3, 120px);
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Cell styling */
+.cell {
+    width: 120px;
+    height: 120px;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    font-weight: bold;
+    color: #333;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    user-select: none;
+    animation: cellAnimation 0.5s ease-in-out;
+}
+
+/* Hover effect for cells */
+.cell:hover {
+    transform: scale(1.1);
+    background-color: #e6e6e6;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Winning effect */
+.cell.x-win {
+    background-color: #ff5c8d;
+    color: white;
+    box-shadow: 0 0 20px rgba(255, 92, 141, 0.5);
+    animation: winAnimation 1s ease-in-out;
+}
+
+.cell.o-win {
+    background-color: #5ce1e6;
+    color: white;
+    box-shadow: 0 0 20px rgba(92, 225, 230, 0.5);
+    animation: winAnimation 1s ease-in-out;
+}
+
+/* Message styling */
+.message {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.message.draw {
+    color: #f49c42;
+}
+
+.message.win {
+    color: #2ecc71;
+    opacity: 1;
+}
+
+/* Reset button */
+button {
+    padding: 15px 30px;
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #ff3385;
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Background animation */
+@keyframes backgroundAnimation {
+    0% {
+        background: linear-gradient(135deg, #f4c4f3, #fcafde);
+    }
+    100% {
+        background: linear-gradient(135deg, #fcafde, #f4c4f3);
+    }
+}
+
+/* Title animation */
+@keyframes titleAnimation {
+    0% {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Container animation */
+@keyframes containerAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Cell animation */
+@keyframes cellAnimation {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Win animation for cells */
+@keyframes winAnimation {
+    0% {
+        transform: scale(1.2);
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+}
